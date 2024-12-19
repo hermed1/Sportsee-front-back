@@ -1,0 +1,35 @@
+.leftBar {
+  height: 100vh;
+  width: 117px;
+  background-color: #020203;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &__copyright {
+    rotate: 270deg;
+    color: white;
+    position: absolute;
+    bottom: 120px;
+    // align-self: flex-end;
+  }
+  &__icons {
+    position: absolute;
+    top: 30%;
+  }
+  &__icon {
+    padding: 5px;
+    &__container {
+      background-color: white;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      border-radius: 6px;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.active-link {
+  text-decoration: underline;
+}
+
+.navlink {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.logo {
+  width: 178px;
+  height: 60.93px;
+  margin-right: 10vw;
+}
+
+.navbar {
+  padding: 18px 100px 18px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+}
+
+.navLinks__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: -5px;
+}/*# sourceMappingURL=Navbar.css.map */
