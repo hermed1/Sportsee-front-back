@@ -30,6 +30,7 @@ const Profile = () => {
     userName = user?.userInfos.firstName;
     console.log(user);
     score = user?.todayScore ?? user.score ?? 0;
+    console.log(score);
   }
 
   return (

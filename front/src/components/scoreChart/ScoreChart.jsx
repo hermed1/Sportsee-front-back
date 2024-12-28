@@ -3,7 +3,7 @@ import './ScoreChart.css';
 import { RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts';
 
 const ScoreChart = ({ score }) => {
-  const formattedScore = [{ name: 'Score', value: 0.25 * 100 }];
+  const formattedScore = [{ name: 'Score', value: score * 100 }];
 
   return (
     <div className='score-chart'>
@@ -14,8 +14,8 @@ const ScoreChart = ({ score }) => {
         innerRadius='90%'
         outerRadius='80%'
         data={formattedScore}
-        startAngle={0}
-        endAngle={360}
+        startAngle={180}
+        endAngle={-180}
       >
         {/* Barre du score */}
         <RadialBar
@@ -23,7 +23,7 @@ const ScoreChart = ({ score }) => {
           clockWise
           dataKey='value'
           cornerRadius={10}
-          fill='#FF0000' // Couleur rouge
+          fill='#FF0000'
         />
         {/* Axe invisible pour centrer */}
         <PolarAngleAxis
@@ -36,7 +36,8 @@ const ScoreChart = ({ score }) => {
       {/* Texte centré */}
       <div className='score-text'>
         <p className='score-value'>{formattedScore[0].value}%</p>
-        <p>de votre objectif</p>
+        <p>de votre</p>
+        <p>objectif</p>
       </div>
     </div>
   );
