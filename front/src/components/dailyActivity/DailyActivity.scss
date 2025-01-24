@@ -1,0 +1,56 @@
+.dailyActivity {
+  position: relative;
+  padding: 20px;
+  background-color: #fbfbfb;
+
+  &__title {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__legend {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+    position: absolute;
+    top: -250px;
+    right: 0;
+    color: #74798c;
+    font-weight: 500;
+    font-size: 14px;
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+    }
+
+    &-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      &--black {
+        background: #282d30;
+      }
+      &--red {
+        background-color: #e60000;
+      }
+    }
+  }
+
+  &__tooltip {
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    &-item {
+      font-size: 12px;
+      margin: 0;
+    }
+  }
+}

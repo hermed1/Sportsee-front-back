@@ -1,0 +1,51 @@
+.dailyActivity {
+  position: relative;
+  padding: 20px;
+  background-color: #fbfbfb;
+}
+.dailyActivity__title {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+.dailyActivity__legend {
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+  position: absolute;
+  top: -250px;
+  right: 0;
+  color: #74798c;
+  font-weight: 500;
+  font-size: 14px;
+}
+.dailyActivity__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+.dailyActivity__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.dailyActivity__legend-dot--black {
+  background: #282d30;
+}
+.dailyActivity__legend-dot--red {
+  background-color: #e60000;
+}
+.dailyActivity__tooltip {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.dailyActivity__tooltip-item {
+  font-size: 12px;
+  margin: 0;
+}/*# sourceMappingURL=DailyActivity.css.map */
