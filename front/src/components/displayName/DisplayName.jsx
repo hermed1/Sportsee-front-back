@@ -3,7 +3,7 @@ import './DisplayName.css';
 
 const DisplayName = ({ userName }) => {
   return (
-    <div>
+    <div className='welcomeMessage__container'>
       <p className='welcomeMessage'>
         Bonjour <span className='welcomeMessage__firstName'> {userName} </span>
       </p>

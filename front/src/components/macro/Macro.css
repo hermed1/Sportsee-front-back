@@ -1,0 +1,29 @@
+.macro {
+  width: 258px;
+  height: 124px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: #fbfbfb;
+  margin-bottom: 30px;
+}
+.macro__infos {
+  line-height: 24px;
+}
+.macro__image {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  margin-right: 25px;
+}
+.macro__value {
+  font-weight: 700;
+  font-size: 20px;
+  color: #282d30;
+}
+.macro__type {
+  color: #74798c;
+  font-weight: 500;
+  font-size: 14px;
+}/*# sourceMappingURL=Macro.css.map */

@@ -1,3 +1,12 @@
 .profile {
   padding: 30px 80px 30px 197px;
 }
+.charts {
+  &__macros__container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__container {
+  }
+}

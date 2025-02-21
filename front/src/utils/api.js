@@ -9,10 +9,30 @@ const api = axios.create({
 
 export const getUserData = async (userId, endpoint) => {
   if (isMocked) {
-    const userData = dataMocked.USER_MAIN_DATA.find(
-      (user) => user.id === userId
-    );
-    return userData;
+    if (!endpoint) {
+      const userData = dataMocked.USER_MAIN_DATA.find(
+        (user) => user.id === userId
+      );
+      return userData;
+    }
+    if (endpoint === 'activity') {
+      const userData = dataMocked.USER_ACTIVITY.find(
+        (user) => user.userId === userId
+      );
+      return userData;
+    }
+    if (endpoint === 'average-sessions') {
+      const userData = dataMocked.USER_AVERAGE_SESSIONS.find(
+        (user) => user.userId === userId
+      );
+      return userData.sessions;
+    }
+    if (endpoint === 'performance') {
+      const userData = dataMocked.USER_PERFORMANCE.find(
+        (user) => user.userId === userId
+      );
+      return userData;
+    }
   }
   try {
     const url = endpoint ? `/${userId}/${endpoint}` : `/${userId}`;
@@ -21,39 +41,5 @@ export const getUserData = async (userId, endpoint) => {
   } catch (error) {
     console.error('Erreur lors de la récupération des données :', error);
     throw error; // Propager l'erreur pour la gestion côté composant
-  }
-};
-
-export const getUserAverageSessions = async (userId) => {
-  if (isMocked) {
-    const userData = dataMocked.USER_AVERAGE_SESSIONS.find(
-      (user) => user.userId === userId
-    );
-    return userData.sessions;
-  }
-  try {
-    const response = await api.get(`/${userId}/average-sessions`);
-    return response.data;
-  } catch (error) {
-    console.error('Erreur:', error);
-    throw error;
-  }
-};
-
-export const getUserPerfomance = async (userId, endpoint) => {
-  if (isMocked) {
-    const userPerformanceData = dataMocked.USER_PERFORMANCE.find(
-      (user) => user.userId === userId
-    );
-
-    return userPerformanceData;
-  }
-  try {
-    const url = endpoint ? `/${userId}/${endpoint}` : `/${userId}`;
-    const response = await api.get(url);
-    return response.data.data;
-  } catch (error) {
-    console.error('Erreur', error);
-    throw error;
   }
 };

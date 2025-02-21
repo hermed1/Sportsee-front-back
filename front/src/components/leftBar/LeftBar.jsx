@@ -22,7 +22,7 @@ const LeftBar = () => {
           <img src={icon4} alt='icon4' className='leftBar__icon' />
         </div>
       </div>
-      <small className='leftBar__copyright'>Copyright SportSee 2024</small>
+      <small className='leftBar__copyright'>Copyright SportSee 2025</small>
     </div>
   );
 };
