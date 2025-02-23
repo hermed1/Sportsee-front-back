@@ -70,9 +70,24 @@ const Profile = () => {
 
       formatedPerformanceData.push(formatedObject);
     }
+
+    // Définir l'ordre souhaité pour les labels
+    const desiredOrder = [
+      'Intensité',
+      'Vitesse',
+      'Force',
+      'Endurance',
+      'Énergie',
+      'Cardio',
+    ];
+
+    // Trier les données formatées selon l'ordre souhaité (en dehors de la boucle)
+    formatedPerformanceData.sort((a, b) => {
+      return desiredOrder.indexOf(a.kind) - desiredOrder.indexOf(b.kind);
+    });
   }
 
-  console.log('userdata', macros);
+  console.log('formatedPerformanceData', formatedPerformanceData);
   return (
     user && (
       <div className='profile'>
@@ -80,9 +95,11 @@ const Profile = () => {
         <div className='charts__macros__container'>
           <div className='charts__container'>
             <DailyActivity data={dailyActivityData} />
-            <AverageSessionsChart data={averageSessions} />
-            <ActivityType data={formatedPerformanceData} />
-            <ScoreChart score={score} />
+            <div className='charts__container__bottom'>
+              <AverageSessionsChart data={averageSessions} />
+              <ActivityType data={formatedPerformanceData} />
+              <ScoreChart score={score} />
+            </div>
           </div>
           <Macros macros={macros} />
         </div>

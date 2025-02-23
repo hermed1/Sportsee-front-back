@@ -1,1 +1,1 @@
-{"version":3,"sources":["AverageSessionsChart.scss","AverageSessionsChart.css"],"names":[],"mappings":"AACE;EACE,kBAAA;EACA,YAAA;EACA,aAAA;EACA,uDAAA;EACA,mBAAA;ACAJ;ADEE;EACE,cAAA;EACA,cAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,kBAAA;EACA,SAAA;ACAJ","file":"AverageSessionsChart.css"}
+{"version":3,"sources":["AverageSessionsChart.scss","AverageSessionsChart.css"],"names":[],"mappings":"AACE;EACE,kBAAA;EACA,YAAA;EACA,aAAA;EAGE,uDAAA;EACF,kBAAA;ACFJ;ADIE;EACE,cAAA;EACA,cAAA;EACA,eAAA;EACA,gBAAA;EACA,iBAAA;EACA,kBAAA;EACA,SAAA;ACFJ","file":"AverageSessionsChart.css"}

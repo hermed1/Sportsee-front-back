@@ -39,10 +39,10 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length >= 2) {
     return (
       <div className='dailyActivity__tooltip'>
-        <p className='dailyActivity__tooltip-item'>{`Poids : ${
+        <p className='dailyActivity__tooltip-item'>{`${
           payload[0]?.value ?? ''
         } kg`}</p>
-        <p className='dailyActivity__tooltip-item'>{`Calories : ${
+        <p className='dailyActivity__tooltip-item'>{`${
           payload[1]?.value ?? ''
         } kCal`}</p>
       </div>
@@ -73,23 +73,34 @@ const DailyActivity = ({ data }) => {
     <div className='dailyActivity'>
       <h3 className='dailyActivity__title'>Activité quotidienne</h3>
       <BarChart
-        width={530}
-        height={320}
+        width={550}
+        height={280}
         data={data}
-        margin={{ top: 50, right: 30, left: 20, bottom: 50 }}
+        margin={{ top: 60, right: 30, left: 20, bottom: 30 }}
         barGap={6}
       >
         <CartesianGrid strokeDasharray='3 3' vertical={false} />
-        <XAxis
+        {/* <XAxis
           dataKey='day'
           tickLine={false}
           tickFormatter={(_, index) => index + 1}
+        /> */}
+        <XAxis
+          dataKey='day'
+          type='category' // On force l'axe en mode "catégorie"
+          tickLine={false}
+          tickFormatter={(_, index) => index + 1}
+          padding={{ left: -30, right: -30 }} // Ajuste éventuellement ces valeurs
         />
+
         <YAxis
           yAxisId='left'
           orientation='right'
           domain={['dataMin-1', 'dataMax+1']}
           axisLine={false}
+          tickFormatter={(value) => Math.round(value)}
+          tick={{ dx: 30 }} // Décale le texte de 20px vers la gauche
+          tickLine={false} // Désactive les petits traits de graduations
         />
         <YAxis
           yAxisId='right'

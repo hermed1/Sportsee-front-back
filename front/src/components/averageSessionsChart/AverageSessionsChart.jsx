@@ -66,8 +66,8 @@ const AverageSessionsChart = ({ data }) => {
       </div>
       <ResponsiveContainer width='100%' height='100%'>
         <LineChart
-          width={258}
-          height={263}
+          //   width={258}
+          //   height={263}
           data={transformedData}
           margin={{ top: 30, right: 0, left: 0, bottom: 40 }}
         >

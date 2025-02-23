@@ -1,12 +1,12 @@
 .macro {
-  width: 258px;
-  height: 124px;
+  width: 210px;
+  height: 100px;
   display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 5px;
   background-color: #fbfbfb;
   margin-bottom: 30px;
+  padding-left: 30px;
   &__infos {
     line-height: 24px;
   }

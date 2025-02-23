@@ -45,15 +45,17 @@ const SessionsChart = ({ data }) => {
         position: 'relative', // Pour positionner le titre
       }}
     >
-      <h3 style={{
-        color: 'rgba(255, 255, 255, 0.6)',
-        fontSize: '15px',
-        margin: '15px',
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '60%',
-      }}>
+      <h3
+        style={{
+          color: 'rgba(255, 255, 255, 0.6)',
+          fontSize: '15px',
+          margin: '15px',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '60%',
+        }}
+      >
         Durée moyenne des sessions
       </h3>
       <ResponsiveContainer>
@@ -62,18 +64,18 @@ const SessionsChart = ({ data }) => {
           margin={{ top: 50, right: 30, left: 20, bottom: 5 }}
         >
           <XAxis
-            dataKey="name"
-            stroke="rgba(255, 255, 255, 0.6)"
+            dataKey='name'
+            stroke='rgba(255, 255, 255, 0.6)'
             axisLine={false}
             tickLine={false}
-            tickFormatter={(value) => days[value-1]}
+            tickFormatter={(value) => days[value - 1]}
           />
           <YAxis hide={true} />
           <Tooltip content={<CustomTooltip />} />
           <Line
-            type="monotone"
-            dataKey="value"
-            stroke="rgba(255, 255, 255, 0.6)"
+            type='monotone'
+            dataKey='value'
+            stroke='rgba(255, 255, 255, 0.6)'
             strokeWidth={2}
             dot={false}
             activeDot={{

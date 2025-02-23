@@ -1,9 +1,14 @@
 .profile {
-  padding: 30px 80px 30px 197px;
+  padding: 30px 50px 30px 157px;
 }
 
 .charts__macros__container {
   margin-top: 100px;
   display: flex;
+  justify-content: space-around;
+}
+.charts__container__bottom {
+  display: flex;
   justify-content: space-between;
+  width: 100%;
 }/*# sourceMappingURL=Profile.css.map */

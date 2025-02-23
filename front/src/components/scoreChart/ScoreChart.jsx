@@ -9,8 +9,8 @@ const ScoreChart = ({ score }) => {
     <div className='score-chart'>
       <h2>Score</h2>
       <RadialBarChart
-        width={258}
-        height={263}
+        width={200}
+        height={204}
         innerRadius='90%'
         outerRadius='80%'
         data={formattedScore}

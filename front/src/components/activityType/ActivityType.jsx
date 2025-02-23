@@ -14,14 +14,19 @@ const ActivityType = ({ data }) => {
       <RadarChart
         cx='50%'
         cy='50%'
-        outerRadius='70%'
-        width={280}
-        height={263}
+        outerRadius='50%'
+        width={190}
+        height={195}
         data={data}
       >
         {/* Grille et axes */}
         <PolarGrid radialLines={false} />
-        <PolarAngleAxis dataKey='kind' tick={{ fill: 'white', fontSize: 12 }} />
+        <PolarAngleAxis
+          dataKey='kind'
+          tick={{ fill: 'white', fontSize: 12 }}
+          tickLine={true} // afficher la petite barre de graduation
+          tickSize={18} // taille de cette barre
+        />
 
         {/* Radar rouge */}
         <Radar

@@ -11,13 +11,14 @@
   font-weight: 500;
   margin: 0;
   color: #20253a;
+  padding-left: 20px;
 }
 .dailyActivity__legend {
   display: flex;
   gap: 30px;
   margin-top: 10px;
   position: absolute;
-  top: -275px;
+  top: -255px;
   right: 0;
   color: #74798c;
   font-weight: 500;
@@ -41,10 +42,18 @@
   background-color: #e60000;
 }
 .dailyActivity__tooltip {
-  background-color: white;
+  background-color: #e60000;
+  color: white;
   padding: 10px;
-  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 49px;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 7px;
+  font-weight: 500;
 }
 .dailyActivity__tooltip-item {
   font-size: 12px;
