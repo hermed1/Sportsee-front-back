@@ -1,10 +1,8 @@
 .score-chart {
   position: relative;
-  width: 190px;
-  height: 195px;
-
-
+  aspect-ratio: 1/1;
   background-color: #fbfbfb;
+//   min-width: auto !important;
 }
 
 .score-text {

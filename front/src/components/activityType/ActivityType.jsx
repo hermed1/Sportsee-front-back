@@ -6,17 +6,18 @@ import {
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
+  ResponsiveContainer,
 } from 'recharts';
 
 const ActivityType = ({ data }) => {
   return (
-    <div className='radarChart'>
+    <ResponsiveContainer width='100%' height='100%' className={'radarChart'}>
       <RadarChart
         cx='50%'
         cy='50%'
         outerRadius='50%'
-        width={190}
-        height={195}
+        //   width={190}
+        //   height={195}
         data={data}
       >
         {/* Grille et axes */}
@@ -36,7 +37,7 @@ const ActivityType = ({ data }) => {
           fillOpacity={0.7}
         />
       </RadarChart>
-    </div>
+    </ResponsiveContainer>
   );
 };
 

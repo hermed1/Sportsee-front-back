@@ -13,7 +13,7 @@ const Macros = ({ macros }) => {
 
   console.log(caloriesCount, proteinCount, carbohydrateCount, lipidCount);
   return (
-    <div>
+    <div className='macros__container'>
       <Macro
         imgPath={calories}
         macroType='calories'
@@ -29,7 +29,12 @@ const Macros = ({ macros }) => {
         macroType='glucides'
         macroCount={carbohydrateCount}
       />
-      <Macro imgPath={lipides} macroType='lipides' macroCount={lipidCount} />
+      <Macro
+        imgPath={lipides}
+        macroType='lipides'
+        macroCount={lipidCount}
+        lastMacroClass='lastMacro'
+      />
     </div>
   );
 };

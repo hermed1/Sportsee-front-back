@@ -60,49 +60,51 @@ const AverageSessionsChart = ({ data }) => {
   };
 
   return (
-    <div className='averageSessionsChart__container'>
+    <ResponsiveContainer
+      width='100%'
+      height='100%'
+      className='averageSessionsChart__container'
+    >
       <div className='averageSessionsChart__title'>
         Durée moyenne des sessions
       </div>
-      <ResponsiveContainer width='100%' height='100%'>
-        <LineChart
-          //   width={258}
-          //   height={263}
-          data={transformedData}
-          margin={{ top: 30, right: 0, left: 0, bottom: 40 }}
-        >
-          <Line
-            type='natural'
-            dataKey='sessionLength'
-            stroke='#FFFFFF'
-            strokeWidth={2}
-            dot={false}
-          />
-          <XAxis
-            dataKey='day'
-            stroke='#FFFFFF'
-            axisLine={false}
-            tickLine={false}
-            tick={{
-              fill: '#FFFFFF',
-              fontWeight: 500,
-              fontSize: 12,
-              opacity: 0.5,
-            }}
-            // padding={{ left: 20, right: 20 }}
-            interval={'preserveStartEnd'}
-            padding={{ left: 20, right: 20 }}
-            dy={35}
-          />
-          <YAxis hide={true} />
-          <Tooltip
-            content={<CustomTooltip />}
-            cursor={<CustomCursor />}
-            wrapperStyle={{ outline: 'none' }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
+      <LineChart
+        //   width={258}
+        //   height={263}
+        data={transformedData}
+        margin={{ top: 50, right: 0, left: 0, bottom: 40 }}
+      >
+        <Line
+          type='natural'
+          dataKey='sessionLength'
+          stroke='#FFFFFF'
+          strokeWidth={2}
+          dot={false}
+        />
+        <XAxis
+          dataKey='day'
+          stroke='#FFFFFF'
+          axisLine={false}
+          tickLine={false}
+          tick={{
+            fill: '#FFFFFF',
+            fontWeight: 500,
+            fontSize: 12,
+            opacity: 0.5,
+          }}
+          // padding={{ left: 20, right: 20 }}
+          interval={'preserveStartEnd'}
+          // padding={{ left: 20, right: 20 }}
+          dy={35}
+        />
+        <YAxis hide={true} />
+        <Tooltip
+          content={<CustomTooltip />}
+          cursor={<CustomCursor />}
+          wrapperStyle={{ outline: 'none' }}
+        />
+      </LineChart>
+    </ResponsiveContainer>
   );
 };
 

@@ -1,12 +1,11 @@
 .averageSessionsChart {
   &__container {
     position: relative;
-    width: 190px;
-    height: 195px;
-  
-    
-      background: linear-gradient(to right, #ff0000, #e60000); // Dégradé rouge
+    aspect-ratio: 1/1;
+    background: linear-gradient(to right, #ff0000, #e60000); // Dégradé rouge
     border-radius: 5px;
+    margin-right: 1vw;
+    // min-width: auto !important;
   }
   &__title {
     color: #ffffff;
@@ -15,6 +14,7 @@
     font-weight: 500;
     line-height: 24px;
     position: absolute;
-    top: 15px;
+    top: 10px;
+    left: 10px;
   }
 }

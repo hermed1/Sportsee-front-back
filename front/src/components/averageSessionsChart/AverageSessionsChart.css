@@ -1,9 +1,9 @@
 .averageSessionsChart__container {
   position: relative;
-  width: 190px;
-  height: 195px;
+  aspect-ratio: 1/1;
   background: linear-gradient(to right, #ff0000, #e60000);
   border-radius: 5px;
+  margin-right: 1vw;
 }
 .averageSessionsChart__title {
   color: #ffffff;
@@ -12,5 +12,6 @@
   font-weight: 500;
   line-height: 24px;
   position: absolute;
-  top: 15px;
+  top: 10px;
+  left: 10px;
 }/*# sourceMappingURL=AverageSessionsChart.css.map */

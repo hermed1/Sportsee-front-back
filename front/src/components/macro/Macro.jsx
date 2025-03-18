@@ -1,9 +1,9 @@
 import React from 'react';
 import './Macro.css';
 
-const Macro = ({ imgPath, macroType, macroCount }) => {
+const Macro = ({ imgPath, macroType, macroCount, lastMacroClass }) => {
   return (
-    <div className='macro'>
+    <div className={`macro ${lastMacroClass ? lastMacroClass : ''}`}>
       <img src={imgPath} alt='icône Macro' className='macro__image' />
       <div className='macro__infos'>
         {/* <p className='macro__value'>
