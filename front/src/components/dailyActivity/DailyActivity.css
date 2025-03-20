@@ -3,11 +3,9 @@
   padding: 20px;
   background-color: #fbfbfb;
   width: 96%;
-  height: 50%;
 }
 .dailyActivity__container {
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 8/3;
 }
 .dailyActivity__title {
   position: absolute;

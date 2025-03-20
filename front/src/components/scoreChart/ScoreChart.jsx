@@ -11,7 +11,7 @@ const ScoreChart = ({ score }) => {
   const formattedScore = [{ name: 'Score', value: score * 100 }];
 
   return (
-    <ResponsiveContainer width='100%' height='100%' className={'score-chart'}>
+    <ResponsiveContainer width='30%' height='100%' className={'score-chart'}>
       <h2 className='score'>Score</h2>
       <RadialBarChart
         innerRadius='90%'

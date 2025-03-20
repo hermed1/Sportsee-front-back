@@ -29,7 +29,18 @@ const Router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <div>Page non trouvée</div>,
+        element: (
+          <div
+            style={{
+              textAlign: 'center',
+              fontWeight: 500,
+              fontSize: '24px',
+              marginTop: '50px',
+            }}
+          >
+            A venir
+          </div>
+        ),
       },
     ],
   },

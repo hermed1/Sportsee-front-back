@@ -61,7 +61,7 @@ const AverageSessionsChart = ({ data }) => {
 
   return (
     <ResponsiveContainer
-      width='100%'
+      width='30%'
       height='100%'
       className='averageSessionsChart__container'
     >

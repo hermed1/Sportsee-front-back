@@ -11,7 +11,7 @@ import {
 
 const ActivityType = ({ data }) => {
   return (
-    <ResponsiveContainer width='100%' height='100%' className={'radarChart'}>
+    <ResponsiveContainer width='30%' height='100%' className={'radarChart'}>
       <RadarChart
         cx='50%'
         cy='50%'

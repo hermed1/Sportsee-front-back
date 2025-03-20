@@ -46,15 +46,10 @@ const DailyActivity = ({ data }) => {
   return (
     <div className='dailyActivity'>
       <h3 className='dailyActivity__title'>Activité quotidienne</h3>
-      {/* On fixe la hauteur pour que le ResponsiveContainer ne soit pas "à 0" */}
-      {/* <div
-
-      // style={{ width: '100%', height: 280 }}
-      > */}
       <ResponsiveContainer
         className='dailyActivity__container'
         width='100%'
-        height={280}
+        height='100%'
       >
         <Legend content={renderLegend} />
         <BarChart
