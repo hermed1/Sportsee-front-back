@@ -54,8 +54,8 @@ const Profile = () => {
   // Mise à jour de l'état avec les données utilisateur récupérées
   useEffect(() => {
     if (user) {
-      setUserName(user?.userInfos.firstName || '');
-      setScore(user?.todayScore ?? user?.score ?? 0);
+      setUserName(user?.firstName);
+      setScore(user?.score);
       setMacros(user?.keyData);
     }
   }, [user]);
