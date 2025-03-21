@@ -17,7 +17,7 @@ const AverageSessionsChart = ({ data }) => {
   // Et remplace la valeur de `day` (numéro) par la lettre correspondante grâce au tableau `days`
   const transformedData = data.map((session) => ({
     ...session, // Copie toutes les propriétés existantes de l'objet `session`
-    day: days[session.day - 1], // Remplace `day` (ex : 1) par la valeur correspondante de `days` (ex : 'L')
+    day: days[session.day - 1], // Remplace `day` (ex : 1) par la valeur correspondante de `days`
   }));
 
   const CustomTooltip = ({ active, payload }) => {
@@ -29,8 +29,16 @@ const AverageSessionsChart = ({ data }) => {
       // Si la souris est sur un point ET qu'on a des données dans payload
 
       return (
-        <div>
-          {/* Affiche la valeur du point sous forme de texte, par exemple "45 min" */}
+        <div
+          style={{
+            backgroundColor: '#fff',
+            padding: '8px 10px',
+            color: '#000',
+            boxShadow: '0 0 5px rgba(0,0,0,0.3)',
+            fontSize: '10px',
+            fontWeight: '500',
+          }}
+        >
           <p>{`${payload[0].value} min`}</p>
         </div>
       );
@@ -41,7 +49,7 @@ const AverageSessionsChart = ({ data }) => {
     return null;
   };
 
-  const CustomCursor = ({ points, width }) => {
+  const CustomCursor = ({ points, width, height, top }) => {
     // Vérifie si `points` est valide
     if (!points || points.length === 0) return null;
 
@@ -50,11 +58,12 @@ const AverageSessionsChart = ({ data }) => {
 
     return (
       <Rectangle
-        fill='hsla(0, 0%, 0%, 9.75%)' // Couleur semi-transparente
-        x={x} // Position horizontale
-        y={0} // Commence tout en haut (y fixe à 0)
-        width={width} // Largeur donnée par Recharts
-        height={263} // Hauteur fixe correspondant à ton LineChart
+        // fill='hsla(0, 0%, 0%, 0.1%)'
+        fill='rgba(0, 0, 0, 0.1)'
+        x={x}
+        y={top - 50}
+        width={width}
+        height={height + 150}
       />
     );
   };
@@ -97,7 +106,8 @@ const AverageSessionsChart = ({ data }) => {
           // padding={{ left: 20, right: 20 }}
           dy={35}
         />
-        <YAxis hide={true} />
+        <YAxis hide={true}   padding={{ bottom: 20 }}
+ />
         <Tooltip
           content={<CustomTooltip />}
           cursor={<CustomCursor />}

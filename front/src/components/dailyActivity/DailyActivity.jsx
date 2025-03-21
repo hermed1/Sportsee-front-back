@@ -11,23 +11,25 @@ import {
 } from 'recharts';
 import './DailyActivity.css';
 
-const CustomTooltip = ({ active, payload }) => {
-  if (active && payload && payload.length >= 2) {
-    return (
-      <div className='dailyActivity__tooltip'>
-        <p className='dailyActivity__tooltip-item'>{`${
-          payload[0]?.value ?? ''
-        } kg`}</p>
-        <p className='dailyActivity__tooltip-item'>{`${
-          payload[1]?.value ?? ''
-        } kCal`}</p>
-      </div>
-    );
-  }
-  return null;
-};
-
 const DailyActivity = ({ data }) => {
+  const CustomTooltip = ({ active, payload }) => {
+    // "active" est true si la souris survole un point du graphique
+    // "payload" contient les données associées au point survolé
+    if (active && payload && payload.length === 2) {
+      return (
+        <div className='dailyActivity__tooltip'>
+          <p className='dailyActivity__tooltip-item'>{`${
+            payload[0]?.value ?? ''
+          } kg`}</p>
+          <p className='dailyActivity__tooltip-item'>{`${
+            payload[1]?.value ?? ''
+          } kCal`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   const renderLegend = () => {
     return (
       <div className='dailyActivity__legend'>

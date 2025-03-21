@@ -7,7 +7,6 @@
   display: flex;
   justify-content: space-around;
   height: 60%;
-  border: green solid 1px;
 }
 @media screen and (min-width: 1200px) {
   .charts__macros__container {
