@@ -17,7 +17,7 @@ const AverageSessionsChart = ({ data }) => {
   // Et remplace la valeur de `day` (numéro) par la lettre correspondante grâce au tableau `days`
   const transformedData = data.map((session) => ({
     ...session, // Copie toutes les propriétés existantes de l'objet `session`
-    day: days[session.day - 1], // Remplace `day` (ex : 1) par la valeur correspondante de `days`
+    day: days[session.day - 1], // Remplace `day` par la valeur correspondante de `days`
   }));
 
   const CustomTooltip = ({ active, payload }) => {
@@ -103,11 +103,9 @@ const AverageSessionsChart = ({ data }) => {
           }}
           // padding={{ left: 20, right: 20 }}
           interval={'preserveStartEnd'}
-          // padding={{ left: 20, right: 20 }}
           dy={35}
         />
-        <YAxis hide={true}   padding={{ bottom: 20 }}
- />
+        <YAxis hide={true} padding={{ bottom: 20 }} />
         <Tooltip
           content={<CustomTooltip />}
           cursor={<CustomCursor />}

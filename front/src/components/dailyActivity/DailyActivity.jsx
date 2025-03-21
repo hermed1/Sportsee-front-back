@@ -7,12 +7,13 @@ import {
   Tooltip,
   XAxis,
   YAxis,
-  ResponsiveContainer, // <-- à importer
+  ResponsiveContainer,
 } from 'recharts';
 import './DailyActivity.css';
 
 const DailyActivity = ({ data }) => {
   const CustomTooltip = ({ active, payload }) => {
+    // "active" et "payload" sont des propriétés passées par le composant Tooltip de Recharts.
     // "active" est true si la souris survole un point du graphique
     // "payload" contient les données associées au point survolé
     if (active && payload && payload.length === 2) {
@@ -30,6 +31,7 @@ const DailyActivity = ({ data }) => {
     return null;
   };
 
+  // Fonction de rendu de la légende personnalisée du graphique
   const renderLegend = () => {
     return (
       <div className='dailyActivity__legend'>
@@ -54,19 +56,26 @@ const DailyActivity = ({ data }) => {
         height='100%'
       >
         <Legend content={renderLegend} />
+        {/* BarChart est le conteneur principal du graphique en barres */}
         <BarChart
           data={data}
           margin={{ top: 60, right: 30, left: 20, bottom: 30 }}
           barGap={6}
         >
+          {/* CartesianGrid ajoute une grille de fond pour faciliter la lecture des valeurs */}
           <CartesianGrid strokeDasharray='3 3' vertical={false} />
           <XAxis
+            // dataKey='day':Indique que pour cet axe, on utilisera la valeur de la propriété "day" de chaque élément du tableau de données.
             dataKey='day'
+            // Précise que l'axe représente des catégories (texte) plutôt que des valeurs numériques.
             type='category'
+            // Ne dessine pas les petites lignes (ticks) sur l'axe.
             tickLine={false}
             tickFormatter={(_, index) => index + 1}
             padding={{ left: -30, right: -30 }}
+            // Définit la couleur de la ligne de l'axe.
             stroke='#DEDEDE'
+            //Définit la couleur du texte des ticks
             tick={{ fill: '#9B9EAC' }}
           />
           <YAxis
@@ -80,6 +89,7 @@ const DailyActivity = ({ data }) => {
           />
           <YAxis yAxisId='right' orientation='right' hide />
           <Tooltip content={<CustomTooltip />} />
+          {/* Barre pour afficher les valeurs de poids */}
           <Bar
             yAxisId='left'
             dataKey='kilogram'
@@ -88,6 +98,7 @@ const DailyActivity = ({ data }) => {
             barSize={7}
             radius={[10, 10, 0, 0]}
           />
+          {/* Barre pour afficher les calories brûlées */}
           <Bar
             yAxisId='right'
             dataKey='calories'

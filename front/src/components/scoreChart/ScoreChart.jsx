@@ -22,15 +22,14 @@ const ScoreChart = ({ score }) => {
       >
         <RadialBar
           minAngle={15}
-          clockWise
+          clockWise // Dessine la barre dans le sens horaire
           dataKey='value'
           cornerRadius={10}
           fill='#FF0000'
         />
         <PolarAngleAxis
           type='number'
-          domain={[0, 100]}
-          angleAxisId={0}
+          domain={[0, 100]} // Définit l'intervalle de l'axe allant de 0 à 100
           tick={false}
         />
       </RadialBarChart>

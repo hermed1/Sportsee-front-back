@@ -19,13 +19,19 @@ const Profile = () => {
   const [activityKinds, setActivityKinds] = useState(null);
   const [activityValues, setActivityValues] = useState(null);
   const [macros, setMacros] = useState(null);
+  const [error, setError] = useState(null);
 
   let formatedPerformanceData = [];
 
   useEffect(() => {
+    // Récupération asynchrone des données utilisateur
     const fetchData = async () => {
       try {
         const userData = await getUserData(userId);
+        console.log('userdata', userData);
+        if (!userData || !userData.data) {
+          throw new Error('Utilisateur introuvable');
+        }
         const sessionsData = await getUserData(userId, 'average-sessions');
         const userPerformanceData = await getUserData(userId, 'performance');
         const userActivityData = await getUserData(userId, 'activity');
@@ -36,12 +42,16 @@ const Profile = () => {
         setActivityKinds(userPerformanceData?.data.kind);
         setActivityValues(userPerformanceData?.data.data);
       } catch (error) {
-        console.error(error);
+        if (error.response && error.response.status === 404) {
+          setError('Utilisateur introuvable (404)');
+        } else {
+          setError('Impossible de joindre le serveur (500)');
+        }
       }
     };
     fetchData();
   }, [userId]);
-
+  // Mise à jour de l'état avec les données utilisateur récupérées
   useEffect(() => {
     if (user) {
       setUserName(user?.userInfos.firstName || '');
@@ -59,8 +69,14 @@ const Profile = () => {
     intensity: 'Intensité',
   };
 
+  // Transformation des données de performance pour le RadarChart
   if (activityKinds && activityValues) {
+    // Pour chaque entrée dans activityValues, on crée un objet contenant :
+    // - "kind" : le type d'activité traduit en français si disponible (sinon, on garde l'anglais).
+    // - "value" : la valeur associée à l'activité.
     for (const item of activityValues) {
+      //activityKinds = objet contenant des paires chiffre : nom de l'activité
+      //on cherche dans l'objet activityKinds la valeur associée à la clé item.kind.
       let englishKind = activityKinds[item.kind];
 
       let formatedObject = {
@@ -81,10 +97,27 @@ const Profile = () => {
       'Cardio',
     ];
 
-    // Trier les données formatées selon l'ordre souhaité (en dehors de la boucle)
+    // Trier les données formatées selon l'ordre souhaité
+    // On compare les index des éléments dans le tableau desiredOrder
     formatedPerformanceData.sort((a, b) => {
       return desiredOrder.indexOf(a.kind) - desiredOrder.indexOf(b.kind);
     });
+  }
+
+  if (error) {
+    return (
+      <div
+        style={{
+          textAlign: 'center',
+          paddingTop: '200px',
+          fontSize: '36px',
+          fontWeight: 'bold',
+          color: 'red',
+        }}
+      >
+        {error}
+      </div>
+    );
   }
 
   console.log('formatedPerformanceData', formatedPerformanceData);
