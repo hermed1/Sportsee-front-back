@@ -30,7 +30,11 @@ const Profile = () => {
         const userData = await getUserData(userId);
         console.log('userdata', userData);
         if (!userData || !userData.data) {
-          throw new Error('Utilisateur introuvable');
+          const notFoundError = new Error('Utilisateur introuvable');
+          notFoundError.response = { status: 404 };
+          throw notFoundError;
+
+          //   throw new Error('Utilisateur introuvable');
         }
         const sessionsData = await getUserData(userId, 'average-sessions');
         const userPerformanceData = await getUserData(userId, 'performance');
